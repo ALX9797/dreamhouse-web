@@ -1,3 +1,5 @@
+
+Index · HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,6 +29,10 @@
     text-align:center;
     padding:24px;
     overflow:hidden;
+    transition: opacity 0.45s ease;
+  }
+  body.fade-out{
+    opacity:0;
   }
   .mono{font-family:'JetBrains Mono', monospace;}
   .splash{
@@ -98,16 +104,29 @@
 </style>
 </head>
 <body>
-
+ 
 <div class="blob"></div>
 <div class="blob2"></div>
-
+ 
 <div class="splash">
   <div class="tag mono">Hello//World</div>
   <h1>This is <span class="accent-word">Dreamhouse</span></h1>
   <p class="come-inside">Come inside.</p>
   <a class="enter-btn" href="site.html">Enter →</a>
 </div>
-
+ 
+<script>
+  document.querySelector('.enter-btn').addEventListener('click', function(e){
+    e.preventDefault();
+    const dest = this.getAttribute('href');
+    document.body.classList.add('fade-out');
+    setTimeout(function(){
+      window.location.href = dest;
+    }, 450);
+  });
+</script>
+ 
 </body>
 </html>
+ 
+
