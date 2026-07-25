@@ -9,14 +9,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&family=Familjen+Grotesk:wght@700&display=swap" rel="stylesheet">
 <style>
-  /* Same cross-document view transition as index.html — both pages need this
-     declared for the browser to smooth the handoff between them. */
-  @view-transition{
-    navigation: auto;
-  }
-  @media (prefers-reduced-motion: reduce){
-    @view-transition{ navigation: none; }
-  }
   :root{
     --bg: #fafaf8;
     --ink: #111111;
@@ -45,7 +37,7 @@
     inset:0;
     z-index:-2;
     background:url('Dreaming Alone.jpg') center center / cover no-repeat;
-    filter: blur(110px) saturate(1.15) brightness(1.2);
+    filter: blur(50px) saturate(1.15) brightness(1.2);
     opacity:0.24;
     pointer-events:none;
   }
@@ -54,7 +46,7 @@
     width:340px; height:340px;
     border-radius:50%;
     background:var(--accent);
-    filter:blur(90px);
+    filter:blur(50px);
     opacity:0.5;
     z-index:-1;
     top:-80px; left:-80px;
@@ -64,7 +56,7 @@
     width:300px; height:300px;
     border-radius:50%;
     background:var(--accent-2);
-    filter:blur(100px);
+    filter:blur(55px);
     opacity:0.4;
     z-index:-1;
     bottom:-100px; right:-100px;
