@@ -81,6 +81,16 @@
     color:#08131f;
     border-color:var(--accent);
   }
+  .key-hint{
+    display:block;
+    margin-top:14px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.7rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--muted);
+    opacity:0.75;
+  }
 </style>
 </head>
 <body>
@@ -90,16 +100,33 @@
   <h1>This is <span class="accent-word">Dreamhouse</span></h1>
   <p class="come-inside">Come inside.</p>
   <a class="enter-btn" href="site.html">Enter →</a>
+  <span class="key-hint mono">or press enter / space</span>
 </div>
 
 <script>
-  document.querySelector('.enter-btn').addEventListener('click', function(e){
-    e.preventDefault();
-    const dest = this.getAttribute('href');
+  const enterBtn = document.querySelector('.enter-btn');
+  let navigating = false;
+
+  function goToSite(){
+    if (navigating) return;
+    navigating = true;
+    const dest = enterBtn.getAttribute('href');
     document.body.classList.add('fade-out');
     setTimeout(function(){
       window.location.href = dest;
     }, 450);
+  }
+
+  enterBtn.addEventListener('click', function(e){
+    e.preventDefault();
+    goToSite();
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Enter' || e.key === ' ' || e.code === 'Space'){
+      e.preventDefault();
+      goToSite();
+    }
   });
 </script>
 
