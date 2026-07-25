@@ -10,16 +10,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg: #fafaf8;
-    --ink: #111111;
+    --ink: #f5f6fa;
+    --muted: #c3cbe6;
     --accent: #7AD5FF;
-    --accent-2: #47CAFF;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html, body{height:100%;}
   body{
-    background:var(--bg);
-    color:var(--ink);
+    background: linear-gradient(rgba(5,10,25,0.45), rgba(5,10,25,0.45)), url('Dreaming Alone.jpg') center center / cover no-repeat;
+    color: var(--ink);
     font-family:'Space Grotesk', Arial, sans-serif;
     display:flex;
     align-items:center;
@@ -41,7 +40,7 @@
     font-size:0.8rem;
     text-transform:uppercase;
     letter-spacing:0.1em;
-    color:#6a6a66;
+    color:var(--muted);
     margin-bottom:22px;
   }
   h1{
@@ -52,13 +51,13 @@
     text-transform:uppercase;
   }
   h1 .accent-word{
-    color:var(--bg);
+    color:transparent;
     -webkit-text-stroke: 2px var(--ink);
   }
   .come-inside{
     margin-top:18px;
     font-size:clamp(1.1rem, 3vw, 1.5rem);
-    color:#444;
+    color:var(--muted);
   }
   .enter-btn{
     display:inline-block;
@@ -69,42 +68,22 @@
     letter-spacing:0.08em;
     padding:16px 38px;
     border:2px solid var(--ink);
-    background:var(--ink);
-    color:var(--bg);
-    transition:transform 0.15s ease, background 0.15s ease, color 0.15s ease;
+    background:rgba(255,255,255,0.08);
+    color:var(--ink);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    transition:transform 0.15s ease, background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
   }
   .enter-btn:hover{
     transform:translate(-2px,-2px);
     box-shadow:4px 4px 0 var(--ink);
     background:var(--accent);
-    color:var(--ink);
-  }
-  .blob{
-    position:fixed;
-    width:340px; height:340px;
-    border-radius:50%;
-    background:var(--accent);
-    filter:blur(90px);
-    opacity:0.5;
-    z-index:-1;
-    top:-80px; left:-80px;
-  }
-  .blob2{
-    position:fixed;
-    width:300px; height:300px;
-    border-radius:50%;
-    background:var(--accent-2);
-    filter:blur(100px);
-    opacity:0.4;
-    z-index:-1;
-    bottom:-100px; right:-100px;
+    color:#08131f;
+    border-color:var(--accent);
   }
 </style>
 </head>
 <body>
-
-<div class="blob"></div>
-<div class="blob2"></div>
 
 <div class="splash">
   <div class="tag mono">Hello//World</div>
