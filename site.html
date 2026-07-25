@@ -1,3 +1,5 @@
+
+Site · HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,11 +26,35 @@
     color:var(--ink);
     font-family:'Space Grotesk', Arial, sans-serif;
     line-height:1.4;
+    opacity:0;
+    transition: opacity 0.5s ease;
   }
   a{color:inherit; text-decoration:none;}
   .mono{font-family:'JetBrains Mono', monospace;}
   .wrap{max-width:1100px; margin:0 auto; padding:0 24px;}
-
+ 
+  /* AMBIENT COLOR (carried over from splash) */
+  .blob{
+    position:fixed;
+    width:340px; height:340px;
+    border-radius:50%;
+    background:var(--accent);
+    filter:blur(90px);
+    opacity:0.5;
+    z-index:-1;
+    top:-80px; left:-80px;
+  }
+  .blob2{
+    position:fixed;
+    width:300px; height:300px;
+    border-radius:50%;
+    background:var(--accent-2);
+    filter:blur(100px);
+    opacity:0.4;
+    z-index:-1;
+    bottom:-100px; right:-100px;
+  }
+ 
   /* NAV */
   header{
     position:sticky; top:0; z-index:50;
@@ -54,7 +80,7 @@
   }
   nav a:hover{border-bottom-color:var(--ink);}
   .nav-toggle{display:none; background:none; border:2px solid var(--ink); padding:8px 10px; font-size:1rem; cursor:pointer;}
-
+ 
   /* HERO */
   .hero{
     border-bottom:2px solid var(--line);
@@ -74,7 +100,7 @@
   }
   .hero-tag, .hero h1, .hero-sub, .hero-cta{
     margin-left: 4px;
-}
+  }
   .hero h1 span{
     color:var(--bg);
     -webkit-text-stroke: 2px var(--ink);
@@ -104,7 +130,7 @@
   .btn:hover{transform:translate(-2px,-2px); box-shadow:4px 4px 0 var(--ink);}
   .btn.outline{background:transparent; color:var(--ink);}
   .btn.accent{background:var(--accent); color:var(--ink); border-color:var(--ink);}
-
+ 
   /* SECTION HEADINGS */
   section{padding:70px 0; border-bottom:2px solid var(--line);}
   .section-head{
@@ -121,7 +147,7 @@
     letter-spacing:-0.02em;
     font-weight:700;
   }
-
+ 
   /* MUSIC */
   .music-grid{
     display:grid;
@@ -141,7 +167,7 @@
   .platform:hover{background:var(--accent);}
   .platform-name{font-weight:700; text-transform:uppercase; font-size:1rem;}
   .platform-arrow{font-family:'JetBrains Mono', monospace;}
-
+ 
   /* BIO */
   .bio-layout{
     display:grid;
@@ -175,7 +201,7 @@
     border:1px dashed var(--accent-2);
     padding:10px 12px;
   }
-
+ 
   /* TOUR */
   .tour-list{list-style:none;}
   .tour-row{
@@ -209,7 +235,7 @@
     color:var(--muted);
     padding:20px 0;
   }
-
+ 
   /* CONTACT */
   .contact-grid{
     display:grid;
@@ -240,7 +266,7 @@
     text-transform:uppercase;
   }
   .social-list a:hover{color:var(--accent-2);}
-
+ 
   footer{
     padding:30px 24px;
     display:flex; justify-content:space-between; align-items:center;
@@ -249,7 +275,7 @@
     font-size:0.75rem;
     color:var(--muted);
   }
-
+ 
   @media (max-width:720px){
     nav ul{
       position:fixed; top:63px; left:0; right:0; bottom:0;
@@ -271,7 +297,10 @@
 </style>
 </head>
 <body>
-
+ 
+<div class="blob"></div>
+<div class="blob2"></div>
+ 
 <header>
   <div class="navbar">
     <div class="logo">Dreamhouse</div>
@@ -286,7 +315,7 @@
     </nav>
   </div>
 </header>
-
+ 
 <section class="hero wrap">
   <div class="hero-tag mono">This // Is </div>
   <h1>DREAM<span>HOUSE</span></h1>
@@ -296,7 +325,7 @@
     <a class="btn outline" href="#shows">See Shows</a>
   </div>
 </section>
-
+ 
 <section id="music" class="wrap">
   <div class="section-head">
     <h2>Music</h2>
@@ -317,7 +346,7 @@
     </a>
   </div>
 </section>
-
+ 
 <section id="about" class="wrap">
   <div class="section-head">
     <h2>About</h2>
@@ -331,7 +360,7 @@
     </div>
   </div>
 </section>
-
+ 
 <section id="shows" class="wrap">
   <div class="section-head">
     <h2>Shows</h2>
@@ -359,7 +388,7 @@
     -->
   </ul>
 </section>
-
+ 
 <section id="contact" class="wrap">
   <div class="section-head">
     <h2>Contact</h2>
@@ -380,19 +409,27 @@
     </div>
   </div>
 </section>
-
+ 
 <footer>
   <div>© <span id="year"></span> Dreamhouse</div>
   <div>Site built on alxsongs.com</div>
 </footer>
-
+ 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
   const toggle = document.getElementById('navToggle');
   const navList = document.getElementById('navList');
   toggle.addEventListener('click', () => navList.classList.toggle('open'));
   navList.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navList.classList.remove('open')));
+ 
+  window.addEventListener('DOMContentLoaded', () => {
+    requestAnimationFrame(() => {
+      document.body.style.opacity = '1';
+    });
+  });
 </script>
-
+ 
 </body>
 </html>
+ 
+
