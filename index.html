@@ -10,14 +10,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&family=Familjen+Grotesk:wght@700&display=swap" rel="stylesheet">
 <link rel="prefetch" href="site.html">
 <style>
-  /* Smooths the jump between this page and site.html in Chrome/Edge/Safari 18.2+.
-     Unsupported browsers just ignore this and fall back to the normal fade below. */
-  @view-transition{
-    navigation: auto;
-  }
-  @media (prefers-reduced-motion: reduce){
-    @view-transition{ navigation: none; }
-  }
   :root{
     --ink: #f5f6fa;
     --muted: #c3cbe6;
@@ -61,8 +53,7 @@
     text-transform:uppercase;
   }
   h1 .accent-word{
-    color:transparent;
-    -webkit-text-stroke: 1px var(--ink);
+    color:#000000;
   }
   .come-inside{
     margin-top:18px;
