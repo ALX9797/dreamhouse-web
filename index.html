@@ -8,7 +8,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="prefetch" href="site.html">
 <style>
+  /* Smooths the jump between this page and site.html in Chrome/Edge/Safari 18.2+.
+     Unsupported browsers just ignore this and fall back to the normal fade below. */
+  @view-transition{
+    navigation: auto;
+  }
+  @media (prefers-reduced-motion: reduce){
+    @view-transition{ navigation: none; }
+  }
   :root{
     --ink: #f5f6fa;
     --muted: #c3cbe6;
@@ -100,7 +109,7 @@
   <h1>This is <span class="accent-word">Dreamhouse</span></h1>
   <p class="come-inside">Come inside.</p>
   <a class="enter-btn" href="site.html">Enter →</a>
-  <span class="key-hint mono"></span>
+  <span class="key-hint mono">or press enter / space</span>
 </div>
 
 <script>
