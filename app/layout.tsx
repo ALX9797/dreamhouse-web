@@ -4,6 +4,7 @@ import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
+  weight: "variable",
   variable: "--font-space-grotesk",
   display: "swap",
 });
